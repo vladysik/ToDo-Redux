@@ -12,17 +12,13 @@ const addTaskIco = <FontAwesomeIcon icon={faPlusCircle} />
 
 export class Todo extends Component {
 
-    // constructor(props) {
-    //     super(props);
+    constructor(props) {
+        super(props);
 
-    //     this.state = {
-    //         newTask: '',
-    //         tasksArray: []
-    //     };
-    // }
-
-    state = {
-        newTask: ''
+        this.state = {
+            newTask: '',
+            tasksArray: []
+        };
     }
 
     onChange = ({ target: { value } }) => {
@@ -48,39 +44,6 @@ export class Todo extends Component {
             newTask: ''
         });
     }
-
-    // editModeTask = (id) => {
-    //     const editTasks = [...this.state.tasksArray];
-    //     editTasks[id].isEdit = !editTasks[id].isEdit;
-    //     this.setState({
-    //         editTasks
-    //     });
-    // }
-
-    // onEditTask = ({ target: { value } }, id) => {
-    //     const onEditedTasksList = [...this.state.tasksArray];
-    //     onEditedTasksList[id].text = value;
-    //     this.setState({
-    //         onEditedTasksList
-    //     });
-    // }
-
-    // editTask = (id) => {
-    //     const editedTask = [...this.state.tasksArray];
-    //     editedTask[id].isEdit = !editedTask[id].isEdit;
-    //     editedTask.splice(id, 0);
-    //     this.setState({
-    //         editedTask
-    //     });
-    // }
-
-    // completeTask = (id) => {
-    //     const completedTask = [...this.state.tasksArray];
-    //     completedTask[id].isComplete = !completedTask[id].isComplete;
-    //     this.setState({
-    //         completedTask
-    //     });
-    // }
 
     render() {
 

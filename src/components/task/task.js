@@ -13,22 +13,6 @@ const checkedTaskIco = <FontAwesomeIcon icon={faFlagCheckered} />
 
 export default class Task extends Component {
 
-    // handleEditMode = () => {
-    //     this.props.editModeTask(this.props.id);
-    // }
-
-    // handleEditTask = (e) => {
-    //     this.props.onEditTask(e, this.props.id);
-    // }
-
-    // handleEditTaskOK = () => {
-    //     this.props.editTask(this.props.id);
-    // }
-
-    // handleCompleteTask = () => {
-    //     this.props.completeTask(this.props.id);
-    // }
-
     handleRemoveTask = () => {
         const {
             id,
