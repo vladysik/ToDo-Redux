@@ -11,5 +11,7 @@ export const addTask = (text, isCompleted, isEdit) => ({
 
 export const removeTask = (id) => ({
     type: REMOVE_TASK,
-    id
+    payload: {
+        id
+    }
 });
