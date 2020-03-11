@@ -2,9 +2,9 @@ import { ADD_TASK, REMOVE_TASK } from '../constants/constants.js';
 
 const initialState = {
     tasksArray: [
-        { text: 'Learn JS', isComplete: false, isEdit: false },
-        { text: 'Learn React', isComplete: false, isEdit: false },
-        { text: 'Learn Redux', isComplete: false, isEdit: false },
+        { text: 'Learn JS', isComplete: false, isEdit: false, isDelete: false },
+        { text: 'Learn React', isComplete: false, isEdit: false, isDelete: false },
+        { text: 'Learn Redux', isComplete: false, isEdit: false, isDelete: false },
     ]
 };
 
@@ -18,9 +18,11 @@ const todoReducer = (state = initialState, { id, payload, type }) => {
                 ] 
             };
         case REMOVE_TASK:
+            const updatedTasksArray = [...state.tasksArray];
+            updatedTasksArray[payload.id].isDelete = !updatedTasksArray[payload.id].isDelete; 
             return {
                 ...state,
-                tasksArray: [...state.tasksArray].splice(id, 1)
+                tasksArray: updatedTasksArray
             };
         default:
             return state;

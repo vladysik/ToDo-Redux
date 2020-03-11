@@ -1,11 +1,12 @@
 import { ADD_TASK, REMOVE_TASK } from '../constants/constants.js';
 
-export const addTask = (text, isCompleted, isEdit) => ({
+export const addTask = (text, isCompleted, isEdit, isDelete) => ({
     type: ADD_TASK,
     payload: {
         text,
         isCompleted,
-        isEdit
+        isEdit,
+        isDelete
     }
 });
 

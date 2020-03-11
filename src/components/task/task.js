@@ -34,7 +34,7 @@ export default class Task extends Component {
             id,
             removeTask
         } = this.props;
-        
+
         removeTask(id);
     }
 
@@ -45,20 +45,25 @@ export default class Task extends Component {
         } = this.props;
 
         return(
-            task.isEdit ? (
-                <li>
-                    <input type='text' value={task.text} onChange={this.handleEditTask}/>
-                    <button onClick={this.handleEditTaskOK}>{completeEditTaskIco}</button>
-                </li>
+            task.isDelete ? (
+                null
             ) : (
-                <li>
-                    <button>{moveTaskIco}</button>
-                    <button style={task.isComplete ? WHITE_COLOR : BLUE_COLOR} onClick={this.handleCompleteTask}>{checkedTaskIco}</button>
-                    <span style={task.isComplete ? COMPLETE_TASK_STYLE : NOT_COMPLETE_TASK_STYLE}>{task.text}</span>
-                    <button onClick={this.handleEditMode}>{editTaskIco}</button>
-                    <button onClick={this.handleRemoveTask}>{removeTaskIco}</button>
-                </li>
+                task.isEdit ? (
+                    <li>
+                        <input type='text' value={task.text} onChange={this.handleEditTask}/>
+                        <button onClick={this.handleEditTaskOK}>{completeEditTaskIco}</button>
+                    </li>
+                ) : (
+                    <li>
+                        <button>{moveTaskIco}</button>
+                        <button style={task.isComplete ? WHITE_COLOR : BLUE_COLOR} onClick={this.handleCompleteTask}>{checkedTaskIco}</button>
+                        <span style={task.isComplete ? COMPLETE_TASK_STYLE : NOT_COMPLETE_TASK_STYLE}>{task.text}</span>
+                        <button onClick={this.handleEditMode}>{editTaskIco}</button>
+                        <button onClick={this.handleRemoveTask}>{removeTaskIco}</button>
+                    </li>
+                )
             )
+           
         );
     }
 }

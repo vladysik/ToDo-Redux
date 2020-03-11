@@ -82,13 +82,6 @@ export class Todo extends Component {
     //     });
     // }
 
-    // removeTask = (id) => {
-    //     const updatedTasksList = this.state.tasksArray.splice(id, 1);
-    //     this.setState({
-    //         updatedTasksList
-    //     });
-    // }
-
     render() {
 
         const {
