@@ -17,7 +17,6 @@ export class Todo extends Component {
 
         this.state = {
             newTask: '',
-            tasksArray: []
         };
     }
 

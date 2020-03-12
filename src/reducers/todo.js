@@ -8,7 +8,7 @@ const initialState = {
     ]
 };
 
-const todoReducer = (state = initialState, { id, payload, type }) => {
+const todoReducer = (state = initialState, { payload, type }) => {
     switch (type) {
         case ADD_TASK:
             return {
