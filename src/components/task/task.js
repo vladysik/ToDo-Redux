@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faTrashAlt, faArrowsAlt, faCheckCircle, faFlagCheckered } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faTrashAlt, faCheckCircle, faFlagCheckered } from '@fortawesome/free-solid-svg-icons';
 
 import { COMPLETE_TASK_STYLE, NOT_COMPLETE_TASK_STYLE, WHITE_COLOR, BLUE_COLOR } from '../../constants/constants.js';
 
-const moveTaskIco = <FontAwesomeIcon icon={faArrowsAlt} />
 const editTaskIco = <FontAwesomeIcon icon={faPen} />
 const removeTaskIco = <FontAwesomeIcon icon={faTrashAlt} />
 const completeEditTaskIco = <FontAwesomeIcon icon={faCheckCircle} />
@@ -22,6 +21,42 @@ export default class Task extends Component {
         removeTask(id);
     }
 
+    handleCompleteTask = () => {
+        const {
+            id,
+            completeTask
+        } = this.props;
+
+        completeTask(id);
+    }
+
+    handleEditMode = () => {
+        const {
+            id,
+            editModeTask
+        } = this.props;
+
+        editModeTask(id);
+    }
+
+    onEdit = (e) => {
+        const {
+            id,
+            onEdit
+        } = this.props;
+
+        onEdit(e, id);
+    }
+
+    handleEditTask = () => {
+        const {
+            id,
+            editTask
+        } = this.props;
+
+        editTask(id);
+    };
+
     render(){
 
         const {
@@ -34,12 +69,11 @@ export default class Task extends Component {
             ) : (
                 task.isEdit ? (
                     <li>
-                        <input type='text' value={task.text} onChange={this.handleEditTask}/>
-                        <button onClick={this.handleEditTaskOK}>{completeEditTaskIco}</button>
+                        <input type='text' value={task.text} onChange={this.onEdit}/>
+                        <button onClick={this.handleEditTask}>{completeEditTaskIco}</button>
                     </li>
                 ) : (
                     <li>
-                        <button>{moveTaskIco}</button>
                         <button style={task.isComplete ? WHITE_COLOR : BLUE_COLOR} onClick={this.handleCompleteTask}>{checkedTaskIco}</button>
                         <span style={task.isComplete ? COMPLETE_TASK_STYLE : NOT_COMPLETE_TASK_STYLE}>{task.text}</span>
                         <button onClick={this.handleEditMode}>{editTaskIco}</button>

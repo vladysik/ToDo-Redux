@@ -1,5 +1,8 @@
 export const ADD_TASK = 'ADD_TASK';
 export const REMOVE_TASK = 'REMOVE_TASK';
+export const COMPLETE_TASK = 'COMPLETE_TASK';
+export const EDIT_MODE_TASK = 'EDIT_MODE_TASK';
+export const EDIT_TASK = 'EDIT_TASK';
 
 export const COMPLETE_TASK_STYLE = { textDecoration: 'line-through', };
 export const NOT_COMPLETE_TASK_STYLE = { textDecoration: null, };

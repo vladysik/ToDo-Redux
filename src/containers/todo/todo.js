@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Task from '../../components/task/task.js';
 
-import { addTask, removeTask } from '../../actions/todo.js';
+import { addTask, removeTask, completeTask, editModeTask, editTask } from '../../actions/todo.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
@@ -45,6 +45,14 @@ export class Todo extends Component {
         });
     }
 
+    onEdit = ({ target: { value } }, id) => {
+        const editTaskArray = [...this.props.tasksArrayProps];
+        editTaskArray[id].text = value;
+        this.setState({
+            editTaskArray
+        });
+    }
+
     render() {
 
         const {
@@ -53,7 +61,10 @@ export class Todo extends Component {
 
         const {
             tasksArrayProps,
-            removeTask
+            removeTask,
+            completeTask,
+            editModeTask,
+            editTask
         } = this.props;
 
         const tasksArrayItems = tasksArrayProps.map((task, id) => {
@@ -61,10 +72,10 @@ export class Todo extends Component {
                 key={id}
                 id={id}
                 task={task}
-                editModeTask={this.editModeTask}
-                onEditTask={this.onEditTask}
-                editTask={this.editTask}
-                completeTask={this.completeTask}
+                editModeTask={editModeTask}
+                onEdit={this.onEdit}
+                editTask={editTask}
+                completeTask={completeTask}
                 removeTask={removeTask}
             />
         });
@@ -87,4 +98,4 @@ export class Todo extends Component {
 
 export default connect(state => ({
     tasksArrayProps: state.todoReducer.tasksArray
-}), { addTask, removeTask })(Todo);
+}), { addTask, removeTask, completeTask, editModeTask, editTask })(Todo);
