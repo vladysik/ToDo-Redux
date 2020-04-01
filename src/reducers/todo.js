@@ -57,7 +57,7 @@ const todoReducer = (state = initialState, { payload, type }) => {
     const editedTasksArray = [...state.tasksArray];
     editedTasksArray[payload.id] = {
       ...editedTasksArray[payload.id],
-      isEdit = !editedTasksArray[payload.id].isEdit,
+      isEdit: !editedTasksArray[payload.id].isEdit,
     };
     return {
     ...state,
