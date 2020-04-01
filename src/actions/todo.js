@@ -1,4 +1,10 @@
-import { ADD_TASK, REMOVE_TASK, COMPLETE_TASK, EDIT_MODE_TASK, EDIT_TASK } from '../constants/constants.js';
+import {
+    ADD_TASK,
+    REMOVE_TASK,
+    COMPLETE_TASK,
+    EDIT_MODE_TASK,
+    EDIT_TASK,
+} from '../constants/constants.js';
 
 export const addTask = (text, isCompleted, isEdit, isDelete) => ({
     type: ADD_TASK,
@@ -6,34 +12,34 @@ export const addTask = (text, isCompleted, isEdit, isDelete) => ({
         text,
         isCompleted,
         isEdit,
-        isDelete
+        isDelete,
     }
 });
 
 export const removeTask = (id) => ({
     type: REMOVE_TASK,
     payload: {
-        id
+        id,
     }
 });
 
 export const completeTask = (id) => ({
     type: COMPLETE_TASK,
     payload: {
-        id
+        id,
     }
 });
 
 export const editModeTask = (id) => ({
     type: EDIT_MODE_TASK,
     payload: {
-        id
+        id,
     }
 });
 
 export const editTask = (id) => ({
     type: EDIT_TASK,
     payload: {
-        id
+        id,
     }
 });
