@@ -28,7 +28,7 @@ export class Todo extends Component {
 
   onChange = ({ target: { value } }) => {
     this.setState({
-      newTask: value
+      newTask: value,
     });
   }
 
@@ -36,17 +36,17 @@ export class Todo extends Component {
     e.preventDefault();
 
     const {
-      newTask
+      newTask,
     } = this.state;
 
     const {
-      addTask
+      addTask,
     } = this.props;
 
     addTask(newTask, false, false);
 
     this.setState({
-      newTask: ''
+      newTask: '',
     });
   }
 
@@ -54,14 +54,14 @@ export class Todo extends Component {
     const editTaskArray = [...this.props.tasksArrayProps];
     editTaskArray[id].text = value;
     this.setState({
-      editTaskArray
+      editTaskArray,
     });
   }
 
   render() {
 
     const {
-      newTask
+      newTask,
     } = this.state;
 
     const {
@@ -69,7 +69,7 @@ export class Todo extends Component {
       removeTask,
       completeTask,
       editModeTask,
-      editTask
+      editTask,
     } = this.props;
 
     const tasksArrayItems = tasksArrayProps.map((task, id) => {
@@ -102,5 +102,5 @@ export class Todo extends Component {
 }
 
 export default connect(state => ({
-  tasksArrayProps: state.todoReducer.tasksArray
+  tasksArrayProps: state.todoReducer.tasksArray,
 }), { addTask, removeTask, completeTask, editModeTask, editTask })(Todo);

@@ -24,7 +24,7 @@ export default class Task extends Component {
   handleRemoveTask = () => {
     const {
       id,
-      removeTask
+      removeTask,
     } = this.props;
 
     removeTask(id);
@@ -33,7 +33,7 @@ export default class Task extends Component {
   handleCompleteTask = () => {
     const {
       id,
-      completeTask
+      completeTask,
     } = this.props;
 
     completeTask(id);
@@ -42,7 +42,7 @@ export default class Task extends Component {
   handleEditMode = () => {
     const {
       id,
-      editModeTask
+      editModeTask,
     } = this.props;
 
     editModeTask(id);
@@ -51,7 +51,7 @@ export default class Task extends Component {
   onEdit = (e) => {
     const {
       id,
-      onEdit
+      onEdit,
     } = this.props;
 
     onEdit(e, id);
@@ -60,7 +60,7 @@ export default class Task extends Component {
   handleEditTask = () => {
     const {
       id,
-      editTask
+      editTask,
     } = this.props;
 
     editTask(id);
@@ -69,7 +69,7 @@ export default class Task extends Component {
   render(){
 
     const {
-      task
+      task,
     } = this.props;
 
     return(
@@ -89,8 +89,7 @@ export default class Task extends Component {
             <button onClick={this.handleRemoveTask}>{removeTaskIco}</button>
           </li>
         )
-      )
-       
+      ) 
     );
   }
 }
