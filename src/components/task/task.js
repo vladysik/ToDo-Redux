@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -19,7 +19,15 @@ const removeTaskIco = <FontAwesomeIcon icon={faTrashAlt} />
 const completeEditTaskIco = <FontAwesomeIcon icon={faCheckCircle} />
 const checkedTaskIco = <FontAwesomeIcon icon={faFlagCheckered} />
 
-export default class Task extends Component {
+export default class Task extends PureComponent {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      updateValue: this.props.task.text,
+    };
+  }
 
   handleRemoveTask = () => {
     const {
@@ -48,13 +56,20 @@ export default class Task extends Component {
     editModeTask(id);
   }
 
-  onEdit = (e) => {
-    const {
-      id,
-      onEdit,
-    } = this.props;
+  // onEdit = (e) => {
+  //   const {
+  //     id,
+  //     onEdit,
+  //   } = this.props;
 
-    onEdit(e, id);
+  //   onEdit(e, id);
+  // }
+
+  onEdit = ({ target: { value } }) => {
+    this.setState({
+      updateValue: value,
+    });
+    console.log(this.state.updateValue);
   }
 
   handleEditTask = () => {
@@ -63,7 +78,11 @@ export default class Task extends Component {
       editTask,
     } = this.props;
 
-    editTask(id);
+    const {
+      updateValue,
+    } = this.state;
+
+    editTask(id, updateValue);
   };
 
   render(){
@@ -72,13 +91,17 @@ export default class Task extends Component {
       task,
     } = this.props;
 
+    const {
+      updateValue,
+    } = this.state;
+
     return(
       task.isDelete ? (
         null
       ) : (
         task.isEdit ? (
           <li>
-            <input type='text' value={task.text} onChange={this.onEdit}/>
+            <input type='text' value={updateValue} onChange={this.onEdit}/>
             <button onClick={this.handleEditTask}>{completeEditTaskIco}</button>
           </li>
         ) : (

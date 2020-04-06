@@ -50,14 +50,6 @@ export class Todo extends Component {
     });
   }
 
-  onEdit = ({ target: { value } }, id) => {
-    const editTaskArray = [...this.props.tasksArrayProps];
-    editTaskArray[id].text = value;
-    this.setState({
-      editTaskArray,
-    });
-  }
-
   render() {
 
     const {
@@ -78,7 +70,7 @@ export class Todo extends Component {
         id={id}
         task={task}
         editModeTask={editModeTask}
-        onEdit={this.onEdit}
+        // onEdit={this.onEdit}
         editTask={editTask}
         completeTask={completeTask}
         removeTask={removeTask}

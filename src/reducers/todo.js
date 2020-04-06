@@ -32,7 +32,7 @@ const todoReducer = (state = initialState, { payload, type }) => {
     };
     return {
       ...state,
-      tasksArray: updatedTasksArray
+      tasksArray: updatedTasksArray,
     };
   case COMPLETE_TASK:
     const completedTasksArray = [...state.tasksArray];
@@ -59,10 +59,11 @@ const todoReducer = (state = initialState, { payload, type }) => {
     editedTasksArray[payload.id] = {
       ...editedTasksArray[payload.id],
       isEdit: !editedTasksArray[payload.id].isEdit,
+      text: payload.updateValue,
     };
     return {
       ...state,
-      tasksArray: editedTasksArray
+      tasksArray: editedTasksArray,
     };
   default:
     return state;

@@ -37,9 +37,10 @@ export const editModeTask = (id) => ({
   }
 });
 
-export const editTask = (id) => ({
+export const editTask = (id, updateValue) => ({
   type: EDIT_TASK,
   payload: {
       id,
+      updateValue,
   }
 });
