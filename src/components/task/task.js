@@ -56,20 +56,10 @@ export default class Task extends PureComponent {
     editModeTask(id);
   }
 
-  // onEdit = (e) => {
-  //   const {
-  //     id,
-  //     onEdit,
-  //   } = this.props;
-
-  //   onEdit(e, id);
-  // }
-
   onEdit = ({ target: { value } }) => {
     this.setState({
       updateValue: value,
     });
-    console.log(this.state.updateValue);
   }
 
   handleEditTask = () => {
